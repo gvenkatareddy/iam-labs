@@ -1,0 +1,84 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>net.unicon.iamlabs</groupId>
+    <artifactId>cas-shiro-grouper</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <packaging>war</packaging>
+    <name>CAS Shiro Grouper proof of concept</name>
+    <description>CAS Shiro Grouper : application</description>
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>1.3.0-SNAPSHOT</version>
+        </dependency>
+		<dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+            <version>1.3.0-SNAPSHOT</version>
+        </dependency>
+		<dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-cas</artifactId>
+            <version>1.3.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.6.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.6.4</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.opensaml</groupId>
+            <artifactId>opensaml</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.santuario</groupId>
+            <artifactId>xmlsec</artifactId>
+            <version>1.4.3</version>
+        </dependency>
+		<dependency>
+           <groupId>edu.internet2.middleware.grouper</groupId>	            
+		   <artifactId>grouperClient</artifactId>
+		   <version>2.1.0</version>
+	   	</dependency>
+    </dependencies>
+    <build>
+        <finalName>shiro-app</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+	<repositories>
+		<repository>
+		      <id>apache.snapshots</id>
+		      <name>Apache Development Snapshot Repository</name>
+		      <url>https://repository.apache.org/content/repositories/snapshots/</url>
+		      <releases>
+		          <enabled>false</enabled>
+		      </releases>
+		      <snapshots>
+		          <enabled>true</enabled>
+		      </snapshots>
+		  </repository>
+	</repositories>	
+
+</project>
