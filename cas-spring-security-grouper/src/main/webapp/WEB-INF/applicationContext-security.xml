@@ -26,11 +26,12 @@
         <authentication-provider ref="casAuthProvider" />
     </authentication-manager>
 
-    <user-service id="userService">
-        <user name="rod" password="rod" authorities="ss-app:user,ss-app:supervisor" />
-        <user name="dianne" password="dianne" authorities="ss-app:user" />
-        <user name="scott" password="scott" authorities="ss-app:user" />
-    </user-service>
+    <!-- <user-service id="userService">
+        <user name="rod" authorities="ss-app:user,ss-app:supervisor" />
+    </user-service> -->
+
+    <!-- Custom implementation to populate GrantedAuthorities based on Grouper groups -->
+    <b:bean id="grouperUserDetailsService" class="net.unicon.iamlabs.springsecuritygrouper.GrouperUserDetailsService"/>
 
     <b:bean id="serviceProperties"
         class="org.springframework.security.cas.ServiceProperties"
@@ -67,7 +68,7 @@
         <b:property name="authenticationUserDetailsService">
             <b:bean
                 class="org.springframework.security.core.userdetails.UserDetailsByNameServiceWrapper">
-                <b:constructor-arg ref="userService" />
+                <b:constructor-arg ref="grouperUserDetailsService" />
             </b:bean>
         </b:property>
         <b:property name="ticketValidator">
