@@ -1,11 +1,12 @@
-<h1>Authenticated User</h1>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+
+<h1>Authenticated User: <span style="color:green;"><shiro:principal/></span></h1>
 <br />
 
-<%@page import="org.apache.shiro.subject.Subject"%>
-<%@page import="org.apache.shiro.SecurityUtils"%>
-<%
-	Subject subject = SecurityUtils.getSubject();
-%>
+<shiro:hasRole name="shiro-app:admin">
+    <b>
+        User has role: <span style="color:green;">shiro-app:admin</span>
+    </b><br />
+</shiro:hasRole>
 
-Authenticated Subject: <b><%=subject.getPrincipal()%></b><br />
-Does user have this role? (Shiro Role: shiro-app:admin | Grouper group: shiro-app:admin): <b><%=subject.hasRole("shiro-app:admin")%></b><br />
+
