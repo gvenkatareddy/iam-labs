@@ -1,8 +1,11 @@
 package net.unicon.iamlabs.shirogrouper;
 
 import edu.internet2.middleware.grouperClient.api.GcGetGroups;
+import edu.internet2.middleware.grouperClient.api.GcGetPermissionAssignments;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGetGroupsResult;
 import edu.internet2.middleware.grouperClient.ws.beans.WsGroup;
+import edu.internet2.middleware.grouperClient.ws.beans.WsPermissionAssign;
+import edu.internet2.middleware.grouperClient.ws.beans.WsSubjectLookup;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -24,16 +27,25 @@ public class GrouperAuthorizingRealm extends AuthorizingRealm {
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 		final String subject = (String) principals.getPrimaryPrincipal();
 		final SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
-		final GcGetGroups groupsClient = new GcGetGroups().addSubjectId(subject);
 
+		//Add Grouper Groups as Shiro roles
+		final GcGetGroups groupsClient = new GcGetGroups().addSubjectId(subject);
 		for (WsGetGroupsResult groupsResult : groupsClient.execute().getResults()) {
 			for (WsGroup group : groupsResult.getWsGroups()) {
 				authorizationInfo.addRole(group.getName());
 			}
 		}
+
+		//Add Grouper permission attributes as Shiro permissions
+		GcGetPermissionAssignments permissionsClient = new GcGetPermissionAssignments().addSubjectLookup(new WsSubjectLookup(subject, null, null));
+		for (WsPermissionAssign permission : permissionsClient.execute().getWsPermissionAssigns()) {
+			final String perm = permission.getAttributeDefNameName().substring(permission.getAttributeDefNameName().indexOf(":") + 1)
+					+ ":" + permission.getAction();
+			authorizationInfo.addStringPermission(perm);
+		}
+
 		return authorizationInfo;
 	}
-
 
 	@Override
 	public boolean supports(AuthenticationToken token) {

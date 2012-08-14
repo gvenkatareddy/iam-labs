@@ -9,4 +9,10 @@
     </b><br />
 </shiro:hasRole>
 
+<shiro:hasPermission name="payroll:run">
+    <b>
+        User has permission: <span style="color:green;">payroll:run</span>
+    </b><br />
+</shiro:hasPermission>
+
 
