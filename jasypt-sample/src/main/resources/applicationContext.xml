@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:encryption="http://www.jasypt.org/schema/encryption"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.jasypt.org/schema/encryption http://www.jasypt.org/schema/encryption/jasypt-spring31-encryption-1.xsd">
+
+    <!-- Jasypt password enc config beans -->
+    <encryption:encryptor-config id="encConf" password-env-name="ENC_PASSWORD"/>
+    <encryption:string-encryptor id="defaultEncryptor" config-bean="encConf"/>
+    <encryption:encryptable-property-placeholder encryptor="defaultEncryptor" location="classpath:encrypted.properties"/>
+
+    <!-- Scan for Jersey Rest Annotations and Spring Annotations -->
+	<context:component-scan base-package="net.unicon.iamlabs.jasyptsample" />
+	<context:annotation-config />
+
+</beans>
