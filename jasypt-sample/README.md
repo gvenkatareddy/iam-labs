@@ -8,7 +8,7 @@ The sample has an encrypted property produced by [Jasypt CLI](http://www.jasypt.
 
 Build
 -----
-From the root of the project directory run `gradlew` or `gradle.bat` depending on the target platform. The resulting artifacts will be created in the `build` directory: `build/libs/jasypt-sample.war` archive and `build/jasypt-sample` exploded war directory (if you prefer deploy it that way).
+From the root of the project directory run `gradlew` or `gradlew.bat` depending on the target platform. The resulting artifacts will be created in the `build` directory: `build/libs/jasypt-sample.war` archive and `build/jasypt-sample` exploded war directory (if you prefer deploy it that way).
 
 Run
 ---
