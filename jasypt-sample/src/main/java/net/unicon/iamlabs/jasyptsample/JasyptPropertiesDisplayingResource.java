@@ -26,7 +26,7 @@ public class JasyptPropertiesDisplayingResource {
 	private String propertyValue;
 
 	@GET
-	public Response generateLtpaToken() throws IOException {
+	public Response displayDecryptedPropertyValue() throws IOException {
 		return Response.ok(this.propertyValue).build();
 	}
 }
