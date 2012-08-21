@@ -12,4 +12,4 @@ From the root of the project directory run `gradlew` or `gradlew.bat` depending 
 
 Run
 ---
-After deploying the war artifact into the Servlet container of choice, simple `GET http(s)://[hostname]/jasypt-sample/property` and you should see the decrypted property returned.
+After deploying the war artifact into the Servlet container of choice, simple `GET http(s)://[hostname]/jasypt-sample` and you should see the decrypted property returned.
