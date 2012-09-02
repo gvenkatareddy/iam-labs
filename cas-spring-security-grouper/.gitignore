@@ -2,10 +2,11 @@
 !/.project
 .project
 .settings
-target/
+build/
 .idea/
 .DS_Store
 overlays/
 *.iws
 .gradle/
+
 
