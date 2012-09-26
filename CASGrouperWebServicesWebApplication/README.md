@@ -5,7 +5,9 @@ This is a sample ASP .NET web application with a custom implementation of a `Rol
 
 The key components are the following:
 
-* `GrouperWebServicesClient`: The client that talks to Grouper WS, acts as the enrty point to the grouper WS. Uses an instance `GrouperWebServicesCredentials` to establish a connection
+* [`GrouperWebServicesClient`](https://github.com/Unicon/iam-labs/blob/master/CASGrouperWebServicesWebApplication/GrouperDotNetWebServices/GrouperWebServicesClient.cs): The 
+client that talks to Grouper WS, acts as the enrty point to the grouper WS. Uses an instance 
+[`GrouperWebServicesCredentials`](https://github.com/Unicon/iam-labs/blob/master/CASGrouperWebServicesWebApplication/GrouperDotNetWebServices/GrouperWebServicesCredentials.cs) to establish a connection
 to Grouper WS.
 
 * `GrouperDotNetWebServices\Roles\GrouperWebServicesRoleProvider`: Grouper implementation of the .NET `RoleProvider` class that uses the `GrouperWebServicesClient` to translate grouper roles and permissions to .NET.
