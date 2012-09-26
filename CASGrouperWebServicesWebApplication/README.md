@@ -18,4 +18,5 @@ to translate grouper roles and permissions to .NET.
 Main configuration of the .NET web application that declares the `<rolemanager>` based on the 
 [`GrouperWebServicesRoleProvider`](https://github.com/Unicon/iam-labs/blob/master/CASGrouperWebServicesWebApplication/GrouperDotNetWebServices/Roles/GrouperWebServicesRoleProvider.cs)
 
-* `CASGrouperWebServicesWebApplication\AdminRestricted\Web.config`: Declares access permissions through the `authorization` element, allowing only specific roles to enter. 
+* [`Web.config`](https://github.com/Unicon/iam-labs/blob/master/CASGrouperWebServicesWebApplication/CASGrouperWebServicesWebApplication/AdminRestricted/Web.config): Declares
+access permissions through the `authorization` element, allowing only specific roles to enter. 
