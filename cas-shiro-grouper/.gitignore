@@ -5,6 +5,9 @@
 target/
 .idea/
 .DS_Store
+.idea
 overlays/
+build/
+.gradle/
 *.iws
 
