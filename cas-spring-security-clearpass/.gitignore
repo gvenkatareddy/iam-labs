@@ -1,0 +1,12 @@
+.classpath
+!/.project
+.project
+.settings
+build/
+.idea/
+.DS_Store
+overlays/
+*.iws
+.gradle/
+
+
