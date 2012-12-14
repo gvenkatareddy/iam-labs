@@ -58,7 +58,7 @@
     <b:bean id="pgtStorage" class="org.jasig.cas.client.proxy.ProxyGrantingTicketStorageImpl"/>
 
     <!-- Clearpass aware extension of the regular CasAuthenticationProvider -->
-    <b:bean id="casAuthProvider" class="net.unicon.cas.addons.client.springsecurity.ClearpassRetrievingCasAuthenticationProvider"
+    <b:bean id="casAuthProvider" class="net.unicon.casclients.addons.springsecurity.ClearpassRetrievingCasAuthenticationProvider"
         p:serviceProperties-ref="serviceProperties"
         p:key="casAuthProviderKey"
         p:clearPassEndpointUrl="${clearpass.endpoint.url}">

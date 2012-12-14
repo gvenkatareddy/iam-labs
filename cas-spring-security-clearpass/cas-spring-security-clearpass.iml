@@ -131,10 +131,12 @@
     <orderEntry type="module-library" exported="" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar://$MAVEN_REPOSITORY$/net/unicon/cas/cas-addons/1.1-RC1-SNAPSHOT/cas-addons-1.1-RC1-SNAPSHOT.jar!/" />
+          <root url="jar://$MAVEN_REPOSITORY$/net/unicon/cas/cas-java-clients-addons/0.5/cas-java-clients-addons-0.5.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES />
+        <SOURCES>
+          <root url="jar://$MAVEN_REPOSITORY$/net/unicon/cas/cas-java-clients-addons/0.5/cas-java-clients-addons-0.5-sources.jar!/" />
+        </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" exported="" scope="RUNTIME">

@@ -14,7 +14,7 @@ repositories {
 def slf4jVersion = '1.7.2'
 def springSecurityVersion = '3.1.3.RELEASE'
 def ehcacheVersion = '2.5.0'
-def casAddonsVersion = '1.1-RC1-SNAPSHOT'
+def casJavaClientsAddonsVersion = '0.5'
 
 
 dependencies {
@@ -30,8 +30,8 @@ dependencies {
     runtime group: 'org.springframework.security', name: 'spring-security-config', version: springSecurityVersion
     runtime group: 'org.springframework.security', name: 'spring-security-cas', version: springSecurityVersion
 
-    //cas-addons for Spring Security Clearpass CAS provider extention
-    runtime group: 'net.unicon.cas', name: 'cas-addons', version: casAddonsVersion, transitive: false
+    //cas-java-clients-addons for Spring Security Clearpass CAS provider extention
+    runtime group: 'net.unicon.cas', name: 'cas-java-clients-addons', version: casJavaClientsAddonsVersion, transitive: false
 
     //To override Spring Security's older Spring transitive dependencies
     runtime 'org.springframework:spring-jdbc:3.1.2.RELEASE'
