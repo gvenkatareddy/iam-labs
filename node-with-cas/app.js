@@ -54,10 +54,16 @@ app.get('/proxied', function(req, res) {
         console.log("CAS successfully authenticated: " + username);
         console.log("PGTIOU: " + pgtIOU);
         
-        cas.getProxyTicket(pgtIOU, "https://dk.example.org:8143/cas/clearPass", function(err, pt) {
-            console.log("PT: " + err);
+        cas.getProxyTicket(pgtIOU, "https://dk.example.org:8143/cas/clearPass", function(err, pt) {            
+            if(err) {
+              console.log(err);
+              res.send("Could not retrieve proxy ticket");
+            }
+            else {
+              res.send({proxyTicket: pt})
+            }
         });  
-        res.send("OK!");        
+                
     });
 }); 
 
