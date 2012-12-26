@@ -11,7 +11,7 @@ There are two endpoints:
 ## Prerequisites
 * Node.js installed
 * npm installed
-* Python 2.7.x (Python 3.x is not yet supported by `jsdom`)
+* *Python 2.7.x* (Python 3.x is not yet supported by `jsdom` and its dependencies)
 
 ## Configuration
 * In `app.js` change CAS URL values suitable for your CAS instalation
