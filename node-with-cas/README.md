@@ -11,6 +11,7 @@ There are two endpoints:
 ## Prerequisites
 * Node.js installed
 * npm installed
+* Python 2.7.x (Python 3.x is not yet supported by `jsdom`)
 
 ## Configuration
 * In `app.js` change CAS URL values suitable for your CAS instalation
@@ -23,3 +24,15 @@ There are two endpoints:
 * `node app`
 
 The resulting app will be then available at `http://localhost:3000` 
+
+## Successful authentication response
+```json
+{
+  "authenticated": {
+    "username": "scott",
+    "attributes": {},
+    "ticket": "ST-1-q407qXJckM6xocm5rvGc-cas.server.edu",
+    "proxies": []
+  }
+}
+```
