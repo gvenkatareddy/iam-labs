@@ -11,6 +11,7 @@ There are two endpoints:
 * [`node.js`](http://nodejs.org/)
 * [`npm`](http://nodejs.org/) (Part of the installation package when you install `node.js`)
 * Python `2.7.3` (Python 3.x is not yet supported by `jsdom` and its dependencies)
+* [OpenSSL](http://www.openssl.org/related/binaries.html) (Required for proxy authentication) 
 
 ## Configuration
 * In `app.js` change CAS URL values suitable for your CAS instalation
@@ -20,6 +21,10 @@ A sample of the `node.js` CAS client configuration is listed below:
 
 * `base_url`: CAS Server URL prefix (i.e. `https://cas.server.net:9443/cas`)
 * `service`: Server name hosting this application (i.e. `http://test.server.net:3000`)
+
+### Proxy authentication configuration
+The following settings are relevant if you plan to exercise proxy authentication.
+
 * `proxy_server`: Required for proxy authentication. Starts a proxy server to accept pgtUrl callbacks
 * `proxy_server_key`: Required for proxy authentication. Keystore for the server to accomodate `https` outbound calls.
 * `proxy_server_cert:` Required for proxy authentication. Certificate for the server to accomodate `https` outbound calls.
@@ -27,7 +32,25 @@ A sample of the `node.js` CAS client configuration is listed below:
 be captured by the proxy server. The proxy server will listen for incoming CAS proxy callbacks at 
 `https://proxy_callback_host:proxy_callback_port`
 
-When exercvising proxy authentication, the details of the backend proxy service need to be modified. A sample follows:
+In order to create the `proxy_server_key` and `proxy_server_cert`, navigate to the root project directory
+and follow the below instructions:
+
+* To create the `private_server_key`: 
+```bash
+openssl genrsa -out privatekey.pem 1024
+```
+
+* To create the `proxy_server_cert`: 
+```bash
+openssl req -new -key privatekey.pem -out csr.pem
+openssl x509 -req -in csr.pem -signkey privatekey.pem -out cert.pem
+```
+
+Note: CAS Server will need to trust the above certificate. The certificate will either have to be imported into the
+Java keystore used by the CAS server, or commercial certificates that are properly signed by an authority need to be 
+used.
+
+When exercising proxy authentication, the details of the backend proxy service need to be modified. A sample follows:
 
 ```
 cas.proxiedRequest(pgtIOU, {
