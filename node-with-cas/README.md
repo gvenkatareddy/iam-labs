@@ -37,7 +37,7 @@ be captured by the proxy server. The proxy server will listen for incoming CAS p
 In order to create the `proxy_server_key` and `proxy_server_cert`, navigate to the root project directory
 and follow the below instructions:
 
-* To create the `private_server_key`: 
+* To create the `proxy_server_key`: 
 ```bash
 openssl genrsa -out privatekey.pem 1024
 ```
