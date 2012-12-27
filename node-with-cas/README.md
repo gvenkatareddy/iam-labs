@@ -14,6 +14,8 @@ There are two endpoints:
 * [OpenSSL](http://www.openssl.org/related/binaries.html) (Required for proxy authentication) 
 
 ## Configuration
+
+### Authentication
 * In `app.js` change CAS URL values suitable for your CAS instalation
 * In `app.get('/proxied', ...)` route in `app.js` change value for proxied service URL suitable for your needs
 
@@ -22,7 +24,7 @@ A sample of the `node.js` CAS client configuration is listed below:
 * `base_url`: CAS Server URL prefix (i.e. `https://cas.server.net:9443/cas`)
 * `service`: Server name hosting this application (i.e. `http://test.server.net:3000`)
 
-### Proxy authentication configuration
+### Proxy authentication 
 The following settings are relevant if you plan to exercise proxy authentication.
 
 * `proxy_server`: Required for proxy authentication. Starts a proxy server to accept pgtUrl callbacks
