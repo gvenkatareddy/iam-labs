@@ -44,9 +44,10 @@ to be stored inside the `logFile`.
 ```json
 {
   "authenticated": {
-    "username": "scott",
+    "username": "admin",
     "attributes": {},
-    "ticket": "ST-1-q407qXJckM6xocm5rvGc-cas.server.edu",
+    "PGTIOU": "PGTIOU-2-ide3veRZCNanet23APly-cas.mohave.edu",
+    "ticket": "ST-2-vLaZzq6dEgx4uhQpqjYg-cas.mohave.edu",
     "proxies": []
   }
 }
