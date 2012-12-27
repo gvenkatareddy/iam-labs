@@ -27,6 +27,16 @@ A sample of the `node.js` CAS client configuration is listed below:
 be captured by the proxy server. The proxy server will listen for incoming CAS proxy callbacks at 
 `https://proxy_callback_host:proxy_callback_port`
 
+When exercvising proxy authentication, the details of the backend proxy service need to be modified. A sample follows:
+
+```
+cas.proxiedRequest(pgtIOU, {
+  protocol: 'https',
+  method: 'GET',
+  hostname: 'proxy-server-host-name',
+  port: 443,
+  pathname: '/sampleProxyService/'
+```
 
 ## Building and running
 * `npm install`
