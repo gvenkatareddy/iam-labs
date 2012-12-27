@@ -1,8 +1,6 @@
-node-with-cas - a proof of concept to casify node apps with [node-cas](https://github.com/joshchan/node-cas) module
+node-with-cas - a proof of concept to casify node apps with a customized version of the 
+[node-cas](https://github.com/joshchan/node-cas) module.
 -------------------------------------------------------------------------------------------------------------------
-
-Note: currently I could not make proxy tickets work.
-
 There are two endpoints:
 
 * `/` - basic CAS-protected URL
