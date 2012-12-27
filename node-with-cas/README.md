@@ -1,15 +1,16 @@
-node-with-cas - a proof of concept to casify node apps with a customized version of the 
-[node-cas](https://github.com/joshchan/node-cas) module.
--------------------------------------------------------------------------------------------------------------------
+# node-with-cas
+
+A proof of concept to casify node apps with a customized version of the [node-cas](https://github.com/joshchan/node-cas) module.
+
 There are two endpoints:
 
 * `/` - basic CAS-protected URL
-* `/proxied` - a URL to demonstrate retrieval of CAS proxy tickets (does not work)
+* `/proxied` - a URL to demonstrate retrieval of CAS proxy tickets
 
 ## Prerequisites
-* Node.js installed
-* npm installed
-* *Python 2.7.x* (Python 3.x is not yet supported by `jsdom` and its dependencies)
+* [`node.js`](http://nodejs.org/)
+* [`npm`](http://nodejs.org/) (A part of the installation package when you install `node.js`)
+* Python `2.7.3` (Python 3.x is not yet supported by `jsdom` and its dependencies)
 
 ## Configuration
 * In `app.js` change CAS URL values suitable for your CAS instalation
@@ -34,9 +35,9 @@ The protyope uses the winston module to log requests. By default, log data is av
 inside the file `casNodeClient.log` at the project root directory. This configuration can be customized through the following
 options available to the CAS module:
 
-`logLevel:` Default is `info`. Other acceptable values are `error` and  `warn`. 
-`logFile:` Location of the log file. Default is `casNodeClient.log`.
-`enableConsoleLogging:` By default, log data is available to the console. Set this to `false` to only allow log data
+* `logLevel:` Default is `info`. Other acceptable values are `error` and  `warn`. 
+* `logFile:` Location of the log file. Default is `casNodeClient.log`.
+* `enableConsoleLogging:` By default, log data is available to the console. Set this to `false` to only allow log data
 to be stored inside the `logFile`.
 
 ## Successful authentication response
