@@ -16,6 +16,18 @@ There are two endpoints:
 * In `app.js` change CAS URL values suitable for your CAS instalation
 * In `app.get('/proxied', ...)` route in `app.js` change value for proxied service URL suitable for your needs
 
+A sample of the `node.js` CAS client configuration is listed below:
+
+* `base_url`: CAS Server URL prefix (i.e. `https://mmoayyed-1933.unicon.net:9443/cas`)
+* `service`: Server name hosting this application (i.e. `http://mmoayyed-1933.unicon.net:3000`)
+* `proxy_server`: Required for proxy authentication. Starts a proxy server to accept pgtUrl callbacks
+* `proxy_server_key`: Required for proxy authentication. Keystore for the server to accomodate `https` outbound calls.
+* `proxy_server_cert:` Required for proxy authentication. Certificate for the server to accomodate `https` outbound calls.
+* `proxy_callback_host`, `proxy_callback_port`: Required for proxy authentication. Forms the callback url for that is to
+be captured by the proxy server. The proxy server will listen for incoming CAS proxy callbacks at 
+`https://proxy_callback_host:proxy_callback_port`
+
+
 ## Building and running
 * `npm install`
 * `npm install jsdom`
