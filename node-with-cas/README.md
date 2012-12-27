@@ -40,14 +40,14 @@ options available to the CAS module:
 * `enableConsoleLogging:` By default, log data is available to the console. Set this to `false` to only allow log data
 to be stored inside the `logFile`.
 
-## Successful authentication response
+## Sample successful authentication response
 ```json
 {
   "authenticated": {
     "username": "admin",
     "attributes": {},
-    "PGTIOU": "PGTIOU-2-ide3veRZCNanet23APly-cas.mohave.edu",
-    "ticket": "ST-2-vLaZzq6dEgx4uhQpqjYg-cas.mohave.edu",
+    "PGTIOU": "PGTIOU-2-ide3veRZCNanet23APly-cas.server.edu",
+    "ticket": "ST-2-vLaZzq6dEgx4uhQpqjYg-cas.server.edu",
     "proxies": []
   }
 }
