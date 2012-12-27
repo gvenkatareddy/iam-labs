@@ -69,7 +69,9 @@ cas.proxiedRequest(pgtIOU, {
 * `npm install winston`
 * `node app`
 
-The resulting app will be then available at `http://localhost:3000`.
+The resulting app will be then available at URL specified by the `service` parameter above. 
+
+##Logging
 
 When you startup the application with `node app`, you should see the following lines on the console:
 ```
@@ -77,7 +79,6 @@ info: startProxyServer(): proxy callback server is listening for proxy requests 
 info: createServer(): express server is listening on port xxxx
 ```
 
-##Logging
 The protyope uses the winston module to log requests. By default, log data is available both at the console level and 
 inside the file `casNodeClient.log` at the project root directory. This configuration can be customized through the following
 options available to the CAS module:
