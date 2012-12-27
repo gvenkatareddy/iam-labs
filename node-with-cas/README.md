@@ -1,6 +1,10 @@
 # node-with-cas
 
-A proof of concept to casify node apps with a customized version of the [node-cas](https://github.com/joshchan/node-cas) module.
+A proof of concept to casify node apps with a customized version of the 
+[node-cas](https://github.com/Unicon/iam-labs/blob/master/node-with-cas/node_modules/cas/lib/cas.js). 
+Customizations include adding logging support and tweaks to the way proxy authentication is configured. 
+
+The original version of the library is available [here](https://github.com/joshchan/node-cas).
 
 There are two endpoints:
 
