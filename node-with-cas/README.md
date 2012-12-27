@@ -83,7 +83,7 @@ info: startProxyServer(): proxy callback server is listening for proxy requests 
 info: createServer(): express server is listening on port xxxx
 ```
 
-The protyope uses the winston module to log requests. By default, log data is available both at the console level and 
+The prototype uses the [`winston module`](https://github.com/flatiron/winston) to log requests. By default, log data is available both at the console level and 
 inside the file `casNodeClient.log` at the project root directory. This configuration can be customized through the following
 options available to the CAS module:
 
