@@ -20,10 +20,27 @@ There are two endpoints:
 ## Building and running
 * `npm install`
 * `npm install jsdom`
-* `git clone git@github.com:joshchan/node-cas.git node_modules/cas`
+* `npm install winston`
 * `node app`
 
+## Run
 The resulting app will be then available at `http://localhost:3000` 
+
+When you startup the application with `node app`, you should see the following lines on the console:
+```
+info: startProxyServer(): proxy callback server is listening for proxy requests on port xxxx
+info: createServer(): express server is listening on port xxxx
+```
+
+##Logging
+The protyope uses the winston module to log requests. By default, log data is available both at the console level and 
+inside the file `casNodeClient.log` at the project root directory. This configuration can be customized through the following
+options available to the CAS module:
+
+`logLevel:` Default is `info`. Other acceptable values are `error` and  `warn`. 
+`logFile:` Location of the log file. Default is `casNodeClient.log`.
+`enableConsoleLogging:` By default, log data is available to the console. Set this to `false` to only allow log data
+to be stored inside the `logFile`.
 
 ## Successful authentication response
 ```json
