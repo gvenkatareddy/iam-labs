@@ -9,7 +9,7 @@ There are two endpoints:
 
 ## Prerequisites
 * [`node.js`](http://nodejs.org/)
-* [`npm`](http://nodejs.org/) (A part of the installation package when you install `node.js`)
+* [`npm`](http://nodejs.org/) (Part of the installation package when you install `node.js`)
 * Python `2.7.3` (Python 3.x is not yet supported by `jsdom` and its dependencies)
 
 ## Configuration
