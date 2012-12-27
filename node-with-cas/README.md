@@ -23,8 +23,7 @@ There are two endpoints:
 * `npm install winston`
 * `node app`
 
-## Run
-The resulting app will be then available at `http://localhost:3000` 
+The resulting app will be then available at `http://localhost:3000`.
 
 When you startup the application with `node app`, you should see the following lines on the console:
 ```
