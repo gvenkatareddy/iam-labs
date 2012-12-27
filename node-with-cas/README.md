@@ -18,8 +18,8 @@ There are two endpoints:
 
 A sample of the `node.js` CAS client configuration is listed below:
 
-* `base_url`: CAS Server URL prefix (i.e. `https://mmoayyed-1933.unicon.net:9443/cas`)
-* `service`: Server name hosting this application (i.e. `http://mmoayyed-1933.unicon.net:3000`)
+* `base_url`: CAS Server URL prefix (i.e. `https://cas.server.net:9443/cas`)
+* `service`: Server name hosting this application (i.e. `http://test.server.net:3000`)
 * `proxy_server`: Required for proxy authentication. Starts a proxy server to accept pgtUrl callbacks
 * `proxy_server_key`: Required for proxy authentication. Keystore for the server to accomodate `https` outbound calls.
 * `proxy_server_cert:` Required for proxy authentication. Certificate for the server to accomodate `https` outbound calls.
