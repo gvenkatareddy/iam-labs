@@ -8,7 +8,8 @@ var express = require('express')
   , user = require('./routes/user')
   , http = require('http')
   , https = require('https')
-  , path = require('path');
+  , path = require('path')
+  , fs = require('fs');
 
 var app = express();
 
@@ -16,7 +17,12 @@ var CAS = require('cas');
 var cas = new CAS({
       base_url: 'https://dk.example.org:8143/cas',
       service: 'http://dk.example.org:3000',
-      external_pgt_url: 'https://dk.example.org:8143/cas',
+      proxy_server: true,
+      proxy_server_port: 0,
+      proxy_server_key: fs.readFileSync('privatekey.pem'),
+      proxy_server_cert: fs.readFileSync('cert.pem'),
+      proxy_callback_host: 'dk.example.org',
+      proxy_callback_port: 9999,
       version: 2.0
 });
 
@@ -42,31 +48,67 @@ var doSimpleAuthenticated = function(req, res, extended) {
 
 app.get('/', function(req, res) {
     cas.authenticate(req, res, function(err, status, username, extended) {
-        console.log("CAS successfully authenticated: " + username);        
-        doSimpleAuthenticated(req, res, extended);        
+        if (err) {
+          // Handle the error
+          res.send({error: err});
+        } else {
+          // Log the user in 
+          cas.log("/: CAS successfully authenticated: " + username);        
+          doSimpleAuthenticated(req, res, extended);  
+        }     
     });
     
 });
 
 app.get('/proxied', function(req, res) {
     cas.authenticate(req, res, function(err, status, username, extended) {
+      
+        if (err) {
+            res.end(err.message);
+            return;
+        }
+        cas.log("/proxied: CAS successfully authenticated: " + username);
         var pgtIOU = extended['PGTIOU'];
-        console.log("CAS successfully authenticated: " + username);
-        console.log("PGTIOU: " + pgtIOU);
         
-        cas.getProxyTicket(pgtIOU, "https://dk.example.org:8143/cas/clearPass", function(err, pt) {            
-            if(err) {
-              console.log(err);
-              res.send("Could not retrieve proxy ticket");
+        if (!pgtIOU) {
+            res.end("No pgtIOU could be obtained from the CAS server. Aborting authentication...");
+            return;
+        } else {
+            cas.log("/proxied: CAS Server returned the pgtIOU: " + pgtIOU);
+        }
+        cas.log("/proxied: Proceeding with proxied request...");
+        cas.proxiedRequest(pgtIOU, {
+            protocol: 'https',
+            method: 'GET',
+            hostname: 'dk.example.org',
+            port: 443,
+            pathname: '/samplerest/Service1/'
+        }, function(err, proxyReq, proxyRes) {
+            if (err) {
+                res.end("An error has occurred: " + err.message);
+                return;
             }
-            else {
-              res.send({proxyTicket: pt})
+     
+            if (!proxyRes) {
+              res.end("Proxy authentication has failed. ");
+              return;
             }
-        });  
-                
+            
+            proxyRes.on('data', function(chunk) {
+
+                res.write(chunk);
+            });
+            proxyRes.on('end', function() {
+                res.write('<div>Completed proxy authentication successfully.<br/></div>');
+                res.end();
+            });
+        });
+
+
+        return;
     });
 }); 
 
 http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server is listening on port " + app.get('port'));
+  cas.log("createServer(): express server is listening on port " + app.get('port'));
 });
