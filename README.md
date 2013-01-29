@@ -1,4 +1,4 @@
-iam-labs
+THIS REPOSITORY IS DEPRECATED AND WILL BE DELETED IN THE NEAR FUTURE
 ========
 
-A collection of useful proof-of-concept projects for IAM team.
+All the projects have migrated as individual repositories under [UniconLabs organization](https://github.com/UniconLabs)
