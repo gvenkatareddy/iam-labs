@@ -1,0 +1,16 @@
+{
+  "summary": {
+    "title": "Phoenix Threat Model",
+    "owner": "Venkata Reddy"
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "title": "Phoenix Threat Model",
+        "thumbnail": "./public/content/images/thumbnail.jpg",
+        "id": 0
+      }
+    ]
+  }
+}
